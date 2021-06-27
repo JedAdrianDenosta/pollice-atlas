@@ -43,6 +43,7 @@
 
 ### Future Updates
 - [ ] Change Display Picture
+- [ ] Email verification when the user signs-up.
 - [ ] Let Admin create/edit/delete parties and choose party color
 - [ ] Give access to Admin in the admin panel to see the users that have voted along with their credentials, specifically their email and/or name for vote validity purposes
 
