@@ -7,6 +7,7 @@
 - CSS
 - Tailwind CSS Framework via npm package manager
 - JavaScript
+- NodeJS(code processors, styling, packages)
 
 ### Back-End
 - Python
@@ -17,26 +18,33 @@
 ## Features
 
 ### Key Features
-- [x] Admin Login, Logout
-- [x] Admin Add Candidates
-- [x] Admin Can Create a Post in News and Updates
-- [x] Admin Update Candidates
-- [x] Admin Delete Candidates
-- [x] Admin View Candidates
 - [x] User Sign-up, Login, Logout
 - [x] User Can Vote
-- [x] User Can See Results in Real-time
+- [x] User Can View Results in Real-time
 - [x] User Can View News and Updates
-- [x] Voting Toggle Button - toggle on/off button for voting
-- [x] Edit Profile Page
+- [x] User Can View About Page
+- [x] User Can Edit their Profile Page
+- [x] Admin Login, Logout
+- [x] Admin Can Add Candidates
+- [x] Admin Can Toggle ON/OFF the Voting
+- [x] Admin Can Create a Post in News and Updates in Real-time
+- [x] Admin Can Update Candidates
+- [x] Admin Can Delete Candidates
+- [x] Admin Can View Candidates
+- [ ] Admin Can View Results Page in Real-time
+- [ ] Admin Can View News and Updates Page in Real-time
+
+### Other Features
+- [x] Email Validation when user creates an account, only wvsu emails are allowed to create an account
+- [x] Password Validation when user creates an account - password must contain at least 6 characters, one upper case letter and a number
+- [x] Highest votes are colored
+- [x] Users can only choose one candidate for every position and users Must choose a candidate for every position else they won't be able to submit their votes
 
 
 ### Future Updates
 - [ ] Change Display Picture
-- [ ] Let admin create/edit/delete parties and choose party color
-- [ ] Give ease of access to admin to see the results in real-time
-- [ ] Give access to admin to see the users that have voted along with their credentials, specifically their email and/or name for vote validity purposes
-- [ ] Give access to admin to see the posts in the admin panel for ease of viewing
+- [ ] Let Admin create/edit/delete parties and choose party color
+- [ ] Give access to Admin in the admin panel to see the users that have voted along with their credentials, specifically their email and/or name for vote validity purposes
 
 ## STEP 1: How to import Pollice-Temporary Database to MongoDB
 
