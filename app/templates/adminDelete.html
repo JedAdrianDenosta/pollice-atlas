@@ -1,0 +1,76 @@
+{% extends "adminBase2.html" %}
+
+{% block title %}Admin — Delete Candidates{% endblock %}
+
+{% block content %}
+
+<!-- Title -->
+<div class="md:px-14 lg:px-20">
+    <div class="w-full p-6 flex-row">
+        <h1
+            class="text-2xl font-normal tracking flex justify-center sm:text-3xl md:text-4xl lg:text-4xl sm:p-1 md:p-3 lg:p-4">
+            Delete Candidate
+        </h1>
+    </div>
+    <div>
+        <div class="filter backdrop-blur-3xl p-6 md:p-10 mb-12 border border-white shadow-lg" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                backdrop-filter: blur(100px);
+                border-radius: 16px;
+                color: #333333;">
+            <!--Enter Data-->
+            <h1 class="flex flex-row justify-start text-sm font-medium md:text-base">Enter Data:</h1>
+            <form method="POST" class="w-full mx-auto space-y-6 py-4">
+                <div class="space-y-4">
+                    <!--delete-->
+                    <div class="rounded-lg px-4 border border-white" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                    backdrop-filter: blur(1000px);">
+                        <span class="flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 md:h-8 md:w-8" viewBox="0 0 20 20"
+                                fill="#4338ca">
+                                <path fill-rule="evenodd"
+                                    d="M9.243 3.03a1 1 0 01.727 1.213L9.53 6h2.94l.56-2.243a1 1 0 111.94.486L14.53 6H17a1 1 0 110 2h-2.97l-1 4H15a1 1 0 110 2h-2.47l-.56 2.242a1 1 0 11-1.94-.485L10.47 14H7.53l-.56 2.242a1 1 0 11-1.94-.485L5.47 14H3a1 1 0 110-2h2.97l1-4H5a1 1 0 110-2h2.47l.56-2.243a1 1 0 011.213-.727zM9.03 8l-1 4h2.938l1-4H9.031z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <input type="text" required
+                                class="text-sm text-current font-light bg-transparent focus:outline-none focus:ring-0 p-3 rounded-md w-full overflow-ellipsis md:text-base"
+                                placeholder="Enter Candidate ID" name="candidate_id" id="candidate_id">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="flex justify-end py-3 md:py-5">
+                    <input name="submit_btn" id="submit_btn" value="Submit" placeholder="Submit" type="submit"
+                        class="text-center transition duration-500 ease-in-out hover:bg-indigo-500 transform hover:-translate-y-1 hover:scale-110 rounded-xl h-10 w-28 text-white text-base bg-indigo-600 
+                        md:text-xl md:h-14 md:w-40 md:transition md:duration-300 md:ease-in-out md:transform md:hover:-translate-y-1 md:hover:scale-110">
+                </div>
+
+            </form>
+        </div>
+        {% if delete_candidate %}
+
+        <!--Real time update of candidates-->
+        <div class="filter backdrop-blur-3xl p-6 mb-12 border border-white  shadow-lg" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                backdrop-filter: blur(100px);
+                border-radius: 16px;
+                color: #333333;">
+            <h1 class="flex flex-row justify-center mb-6 text-lg font-medium md:text-xl">Deleted Candidate
+            </h1>
+
+            <!--Added-->
+            <div class="flex justify-center">
+                <div class="leading-relaxed py-4 border w-auto h-auto border-white flex justify-center md:py-6" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                backdrop-filter: blur(100px);
+                border-radius: 16px;
+                color: #333333;">
+                    <div class="flex flex-row justify-center">
+                        <p class="px-6 text-sm font-light md:text-base">
+                            Candidate <strong>{{delete_candidate}}</strong> has been deleted from our database.</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

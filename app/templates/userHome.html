@@ -1,0 +1,113 @@
+{% extends "userBase2.html" %}
+{% block title %}Pollice — Home{% endblock %}
+
+{% block content %}
+
+<!-- Title -->
+<div class="flex flex-wrap p-0">
+    <div class="w-full p-6">
+        <h1
+            class="text-xl font-light tracking-wide flex justify-center sm:text-2xl md:text-3xl lg:text-4xl sm:p-1 md:p-3 lg:p-4">
+            News and Updates
+        </h1>
+    </div>
+    <!-- Content -->
+    <div class="p-0 mb-12 sm:p-6 sm:pt-0 lg:pt-0 space-y-10">
+
+        <!--First Content-->
+        <div class="filter backdrop-blur-3xl shadow-xl w-auto h-auto p-5 border border-white lg:w-auto lg:flex lg:place-self-center"
+            style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                backdrop-filter: blur(1000px);
+                border-radius: 16px;">
+            <div class=" flex place-items-start flex-nowrap flex-col w-auto p-3 ">
+                <div class="w-full relative flex flex-nowrap justify-start items-center">
+                    <!-- Profile and Name -->
+                    <img class=" relative filter drop-shadow-md mb-2"
+                        src="{{ url_for('static', filename='img/heading-icons/Final Profile pic(1).svg') }}" alt=""
+                        srcset="">
+                    <h4 class="flex justify-end static w-auto h-auto p-2 text-white rounded pl-10 -ml-8 sm:w-auto sm:text-lg "
+                        style="background: #E2502B;">
+                        John Lennon</h4>
+                </div>
+                <p
+                    class="p-1 pt-2 sm:p-6 md:pl-10 md:pr-10 lg:pr-12 lg:pl-12 sm:pt-2 text-xs font-extralight mt-1 sm:text-sm ">
+                    Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                    literature from 45 BC, making it over 2000 years old.
+                    Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked
+                    up
+                    one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+                    going
+                    through the cites of the word in classical literature, discovered the undoubtable
+                    source.
+                    Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
+                    Malorum"
+                    (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise
+                    on
+                    the theory of ethics, very popular during the Renaissance. The first line of Lorem
+                    Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those
+                    interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by
+                    Cicero
+                    are also reproduced in their exact original form, accompanied by English versions
+                    from
+                    the 1914 translation by H. Rackham.
+                    Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                    literature from 45 BC, making it over 2000 years old.
+                    Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked
+                    up
+                    one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+                    going
+                    through the cites of the word in classical literature, discovered the undoubtable
+                    source.
+                </p>
+            </div>
+        </div>
+
+        {% for post in posts %}
+
+        
+
+
+        <div class="filter backdrop-blur-3xl shadow-xl w-auto h-auto p-5 border border-white lg:w-auto lg:flex lg:place-self-center"
+            style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                backdrop-filter: blur(1000px);
+                border-radius: 16px;">
+            <div class=" flex place-items-start flex-nowrap flex-col w-auto p-3 ">
+                {% for key, value in post.items() %}
+                {% if key == 'post_name' %}
+                <div class="w-full relative flex flex-nowrap justify-start items-center">
+
+                    <img class=" relative filter drop-shadow-md mb-2"
+                        src="{{ url_for('static', filename='img/heading-icons/Final Profile pic(1).svg') }}" alt=""
+                        srcset="">
+                    
+                    
+                    <h4 class="flex justify-end static w-auto h-auto p-2 text-white rounded pl-10 -ml-8 sm:w-auto sm:text-lg "
+                        style="background: #E2502B;">
+                        {{value}}</h4>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+                {% for key, value in post.items() %}
+                {% if key == 'post_details' %}
+                <p
+                    class="p-1 pt-2 sm:p-6 md:pl-10 md:pr-10 lg:pr-12 lg:pl-12 sm:pt-2 text-xs font-extralight mt-1 sm:text-sm ">
+                    {{value}}
+                </p>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div> 
+
+
+        
+        {% endfor %}
+
+
+    </div>
+</div>
+
+
+
+{% endblock %}

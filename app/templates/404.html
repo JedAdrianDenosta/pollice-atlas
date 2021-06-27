@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Logo Icon" href="{{url_for('static', filename='img/Main Logo.svg') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='dist/css/main.css') }}">
+    <title>Pollice — Error</title>
+</head>
+
+<!-- Body Class -->
+
+<body class="font-body w-screen h-auto overflow-hidden overflow-y-scroll ">
+    <!-- Main Container -->
+    <div class="absolute h-full w-full">
+        <!-- Background Image -->
+        <div class="relative bg-gradient-to-br from-green-100 via-green-50 to-purple-300 h-full w-full">
+            <!--Body-->
+            <div class="flex flex-wrap justify-center p-20 w-screen h-screen">
+                <div class="flex flex-col justify-center items-center lg:flex lg:flex-row lg:justify-start">
+                    <!--Image--> 
+                    <img class=" w-full h-full" src="{{url_for('static', filename='img/errorPage /404.svg') }}" alt="" srcset="">
+                    <div class="static text-gray-700 flex flex-col items-center tracking-wider lg:p-6 ">
+                        <!--Content-->
+                        <div class="flex flex-col justify-center">
+                            <h1 class="flex justify-center text-6xl mt-10 font-medium md:text-7xl lg:text-8xl ">404</h1>
+                            <p class="flex justify-center text-base md:text-lg lg:text-xl lg:tracking-wider">Page not
+                                Found</p>
+                            <p
+                                class="flex justify-center p-2 w-80 text-xs font-extralight md:p-8 md:text-sm lg:text-base">
+                                Sorry! We couldn’t find the<br> page you’re looking for.
+                            </p>
+                        </div>
+                        <!--Button-->
+                        <a href="/login" class="">
+                            <button
+                                class="bg-indigo-700 text-white w-auto flex justify-center p-4 pl-12 pr-12 mt-10 rounded-xl lg:p-6 lg:pl-14 lg:pr-14 
+                            lg:transition lg:duration-500 lg:ease-in-out lg:transform lg:hover:-translate-y-1 lg:hover:scale-110">
+                                <p class="text-base md:text-lg lg:text-xl">Back Home</p>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

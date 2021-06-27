@@ -1,0 +1,32 @@
+{% extends "userBase1.html" %}
+
+{% block title %}Pollice — Landing Page{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+<div class="flex flex-row justify-center items-center md:p-12">
+    <div class="flex flex-col justify-center items-center">
+        <div class="space-y-4 flex flex-col items-center justify-center">
+            <img src="{{ url_for('static', filename='img/Main Logo.svg') }}" class="filter drop-shadow-lg w-full h-auto mt-10 md:mt-2" alt=""> 
+            <h1 class="text-4xl font-semibold md:text-5xl text-white">Pollice</h1>
+        </div>
+        <p class="text-xs font-light flex flex-col items-center justify-center md:text-base text-white">
+            Making things easier in the virtual world
+        </p>
+        <div class="flex flex-col items-center justify-center">
+            <img src="{{ url_for('static', filename='img/landingPage-icons/Saly-19.svg') }}" 
+            class="w-sm h-sm max-w-sm max-h-sm md:max-w-md lg:max-w-md" alt=""> 
+        </div>
+        <div class="static flex flex-col items-center tracking-wider bottom-0">
+            <div class="group pt-16 flex flex-col items-center justify-center">
+                <button type="submit" class="text-white bg-indigo-700 group-hover:bg-indigo-500 p-3 px-8 rounded-3xl text-sm md:text-base md:p-4 md:px-10">
+                    Let's get started!
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,284 @@
+{% extends "userBase2.html" %}
+
+{% block title %}Pollice — Vote{% endblock %}
+
+{% block content %}
+<style>
+    .radio-buttons {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
+    .custom-radio input {
+        display: none;
+    }
+
+    .radio-btn {
+        margin: 10px;
+        border: 3px solid rgba(255, 255, 255, 0);
+        display: flex;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 0 20px #c3c3c367;
+        cursor: pointer;
+        justify-content: center;
+    }
+
+    .radio-btn>i {
+        color: #ffffff;
+        background-color: #86e673;
+        font-size: 20px;
+        position: absolute;
+        top: -15px;
+        left: 100%;
+        transform: translateX(-50%) scale(0);
+        border-radius: 50px;
+        padding: 3px;
+        transition: 0.2s;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+
+    .custom-radio input:checked+.radio-btn {
+        border: 3px solid white;
+    }
+
+    .custom-radio input:checked+.radio-btn>i {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+</style>
+
+<!-- Title -->
+<div class="relative inline-block lg:p-12 lg:pt-6">
+    <div class="w-full p-6 pb-3 lg:pt-0 flex-row">
+        <h1
+            class="text-2xl font-normal tracking-wider flex justify-center sm:text-3xl md:text-4xl lg:text-4xl sm:p-1 md:p-3 lg:p-4">
+            Vote
+        </h1>
+    </div>
+    <!--Legends-->
+    <div class="pt-2 pl-1 pb-8 md:pb-10 ">
+        <h2 class="mt-1 text-gray-700 text-lg font-normal">Legend</h2>
+        <div class="grid grid-cols-3 gap-2 w-60 items-start pt-1">
+            <p
+                class="flex justify-center text-xs p-1 bg-pink-400 w-auto text-white font-light tracking-wide rounded-lg sm:text-sm">
+                Party 1</p>
+            <p
+                class="flex justify-center text-xs p-1 bg-purple-400 w-auto text-white font-light tracking-wide rounded-lg sm:text-sm">
+                Party 2</p>
+            <p
+                class="flex justify-center text-xs p-1 bg-blue-400 w-auto text-white font-light tracking-wide rounded-lg sm:text-sm">
+                Party 3</p>
+        </div>
+    </div>
+
+    <form method="POST">
+        <!--Voting Forms-->
+        <div class="grid grid-cols-1 gap-10 mb-12 w-full h-auto justify-items-center
+    sm:grid sm:grid-cols-2 sm:gap-14 
+    lg:grid lg:grid-cols-2 lg:gap-18 lg:mb-8">
+            {% for position in positions %}
+            <!--POSITIONS-->
+            <div class="filter backdrop-blur-3xl w-full h-full p-5 pl-4 pr-4 border order-first border-white shadow-xl"
+                style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                backdrop-filter: blur(100px);
+                border-radius: 16px;">
+                <div class="flex items-center flex-col w-auto h-auto">
+                    <h4 class="text-center flex flex-col justify-center w-auto h-auto p-3 pl-7 pr-7 tracking-wider rounded-lg text-white text-lg sm:w-auto md:text-lg filter drop-shadow-lg"
+                        style="background: #4338ca;">
+                        {{position}}
+                    </h4>
+
+                    <!-- START OF RADIO BUTTON -->
+                    <div class="radio-buttons">
+
+                        {% for vote in votes %}
+                        {% for key, value in vote.items() %}
+                        {% if position == key %}
+                        {% if value[1] == "party1" %}
+                        <!-- PARTY 1 -->
+                        <label class="custom-radio">
+                            <input type="radio" name="{{position}}" value="{{value[0]}}" id="{{value[0]}}" required>
+                            <span class="radio-btn pt-4 pb-4">
+                                <i class="las la-check"></i>
+                                <span class="bg-gradient-to-r from-pink-400 to-pink-300 rounded-md w-auto h-auto">
+                                    <label for="{{value[0]}}" class="p-3 text-white text-sm">
+                                        {{value[0]}}
+                                    </label>
+                                </span>
+                            </span>
+                        </label>
+                        <!-- END OF PARTY 1 -->
+                        {% endif %}
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+
+
+                        {% for vote in votes %}
+                        {% for key, value in vote.items() %}
+                        {% if position == key %}
+                        {% if value[1] == "party2" %}
+                        <!-- PARTY 2 -->
+                        <label class="custom-radio">
+                            <input type="radio" name="{{position}}" value="{{value[0]}}" id="{{value[0]}}" required>
+                            <span class="radio-btn pt-4 pb-4">
+                                <i class="las la-check"></i>
+                                <span class="bg-gradient-to-r from-purple-400 to-purple-300 rounded-md w-auto h-auto">
+                                    <label for="{{value[0]}}" class="p-3 text-white text-sm">
+                                        {{value[0]}}
+                                    </label>
+                                </span>
+                            </span>
+                        </label>
+                        <!-- END OF PARTY 2 -->
+                        {% endif %}
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+
+
+                        {% for vote in votes %}
+                        {% for key, value in vote.items() %}
+                        {% if position == key %}
+                        {% if value[1] == "party3" %}
+                        <!-- PARTY 3 -->
+                        <label class="custom-radio">
+                            <input type="radio" name="{{position}}" value="{{value[0]}}" id="{{value[0]}}" required>
+                            <span class="radio-btn pt-4 pb-4">
+                                <i class="las la-check"></i>
+                                <span class="bg-gradient-to-r from-blue-400 to-blue-300 rounded-md w-auto h-auto">
+                                    <label for="{{value[0]}}" class="p-3 text-white text-sm">
+                                        {{value[0]}}
+                                    </label>
+                                </span>
+                            </span>
+                        </label>
+                        <!-- END OF PARTY 3 -->
+                        {% endif %}
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+
+
+                    </div>
+                    <!-- END OF RADIO BUTTON -->
+
+
+                </div>
+            </div>
+            <!-- END OF POSITIONS -->
+            {% endfor %}
+
+
+        </div>
+        {% if voted == False %}
+        <div class="text-center"><input id="submit_btn" type="submit" name="submit_btn"
+                class="modal-open transition duration-500 ease-in-out hover:bg-indigo-600 transform hover:-translate-y-1 hover:scale-110 rounded-xl p-3 h-14 w-36 text-white text-lg bg-indigo-700 
+                lg:text-xl lg:p-4 lg:h-16 lg:w-40 lg:transition lg:duration-300 lg:ease-in-out lg:transform lg:hover:-translate-y-1 lg:hover:scale-110" value="Submit"></div>
+        {% endif %}
+
+        {% if voted == True %}
+        <div class="text-center"><input id="submit_btn" type="submit" name="submit_btn"
+                class="transition duration-500 ease-in-out hover:bg-indigo-600 transform hover:-translate-y-1 hover:scale-110 rounded-xl p-3 h-14 w-36 text-white text-lg bg-indigo-700 
+                        lg:text-xl lg:p-4 lg:h-16 lg:w-40 lg:transition lg:duration-300 lg:ease-in-out lg:transform lg:hover:-translate-y-1 lg:hover:scale-110" value="Submit"
+                style="visibility: hidden;"></div>
+        <div class="text-center">Voting is over and done with!</div>
+        {% endif %}
+
+
+
+        <!-- MODAL  -->
+        <div class="modal rounded-lg font-body opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+            style="color: #333333;">
+            <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+            <div
+                class="modal-container bg-white w-9/12 md:w-11/12  md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+
+                <!-- Add margin if you want to see some of the overlay behind the modal-->
+                <div class="modal-content text-left p-8 pt-6 md:p-10 md:pt-8 ">
+                    <!--Title-->
+                    <div class="modal-close cursor-pointer z-50 flex flex-row justify-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                    <div class="flex justify-between items-center pb-3">
+                        <p class="text-xl font-bold py-2 md:text-2xl md:py-4 md:pt-2">Hello again, {{user}}!</p>
+
+                    </div>
+
+                    <!--Body-->
+                    <div class="p-2 py-4 md:p-4 md:py-8 flex flex-row justify-center">
+                        <img src="{{ url_for('static', filename='img/modal-illustration/Saly-22.svg') }}"
+                            class="w-auto h-auto" alt="">
+                    </div>
+                    <p class="py-6 text-base md:py-10 text-center md:text-xl text-green-500">Would you like to submit
+                        your vote?</p>
+
+
+                    <!--Footer-->
+                    <div class="flex justify-end pt-2">
+                        <button
+                            class="modal-close px-3 md:px-4 bg-transparent p-2 md:p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Cancel</button>
+                        <input type="submit" id="okay_btn" name="okay_btn" value="Okay"
+                            class="px-3 md:px-4 bg-indigo-500 p-2 md:p-3 rounded-lg text-white hover:bg-indigo-400">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+
+    <script>
+        var openmodal = document.querySelectorAll('.modal-open')
+        for (var i = 0; i < openmodal.length; i++) {
+            openmodal[i].addEventListener('click', function (event) {
+                event.preventDefault()
+                toggleModal()
+            })
+        }
+
+        const overlay = document.querySelector('.modal-overlay')
+        overlay.addEventListener('click', toggleModal)
+
+        var closemodal = document.querySelectorAll('.modal-close')
+        for (var i = 0; i < closemodal.length; i++) {
+            closemodal[i].addEventListener('click', toggleModal)
+        }
+        document.onkeydown = function (evt) {
+            evt = evt || window.event
+            var isEscape = false
+            if ("key" in evt) {
+                isEscape = (evt.key === "Escape" || evt.key === "Esc")
+            } else {
+                isEscape = (evt.keyCode === 27)
+            }
+            if (isEscape && document.body.classList.contains('modal-active')) {
+                toggleModal()
+            }
+        };
+
+        function toggleModal() {
+            const body = document.querySelector('body')
+            const modal = document.querySelector('.modal')
+            modal.classList.toggle('opacity-0')
+            modal.classList.toggle('pointer-events-none')
+            body.classList.toggle('modal-active')
+        }
+
+
+    </script>
+
+    {% endblock %}

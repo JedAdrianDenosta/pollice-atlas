@@ -1,0 +1,53 @@
+{% extends "adminBase2.html" %} {% block title %}Pollice — Admin Profile{% endblock %} {% block content %}
+
+<div class="flex w-auto h-auto flex-col flex-grow p-8 pl-0 pr-0 mt-auto mb-auto lg:mt-0 lg:mb-0 text-gray-700 overflow-hidden">
+    <!--Body-->
+    <div class="md:pb-14">
+        <!--Back Button-->
+        <a href="admin/add" class="flex justify-end p-3 pt-0 pr-8 pb-2
+                    md:pr-12 md:pt-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 lg:h-14 lg:w-14" viewBox="0 0 20 20" fill="#333333">
+                <path fill-rule="evenodd"
+                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+        <!--Profile Title-->
+        <h1 class="text-2xl font-bold ml-12 mb-8 
+                    md:text-3xl md:ml-14
+                    lg:ml-24" style="color: #333333;">
+            Profile
+        </h1>
+        <!--Profile Picture-->
+        <div class="relative w-full flex justify-center justify-self-center" style="z-index: 20;">
+            <img class="absolute w-28 h-28 filter drop-shadow-xl mt-6" src="{{ url_for('static', filename='img/heading-icons/Final Profile pic(1).svg' ) }}" alt="">
+        </div>
+        <!--White Background-->
+        <div class="p-8 md:pb-0 md:px-14 lg:px-24">
+            <div class="mb-0 w-auto h-full bg-white pb-0 mt-16 p-6 sm:p-10 sm:pt-6 md:p-16 md:pb-10 md:pt-6 rounded-3xl md:rounded-3xl md:mb-0 " style="z-index: 10; color: #333333;">
+                <!--Name and Email-->
+                <div class="static flex justify-center">
+                    <h1 class="mt-8 text-2xl font-medium md:text-3xl">{{ admin_username }}</h1>
+                </div>
+                <!--Log out Button-->
+                <div class="flex justify-end mt-4 md:mt-8">
+                    <a href="/logout">
+                        <button class="flex items-center justify-center transition duration-500 ease-in-out hover:bg-indigo-600 transform hover:-translate-y-1 hover:scale-110 rounded-xl p-3 pt-2 pb-2 pl-4 pr-4 text-white text-lg bg-indigo-700 
+                                    lg:transition lg:duration-300 lg:ease-in-out lg:transform lg:hover:-translate-y-1 lg:hover:scale-110
+                                    md:p-4 md:pt-4 md:pb-4 md:pl-6 md:pr-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <p class="text-sm md:text-base">Log out</p>
+                    </button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

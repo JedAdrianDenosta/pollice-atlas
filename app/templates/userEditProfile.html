@@ -1,0 +1,88 @@
+{% extends "userBase2.html" %} {% block title %}Pollice — Edit{% endblock %} {% block content %}
+
+<div class="flex w-auto h-auto flex-col flex-grow p-8 pl-0 pr-0 mt-auto mb-auto lg:mt-0 lg:mb-0 overflow-y-scroll text-gray-700 ">
+    <!--Body-->
+    <div class="md:pb-14">
+        <!--Back Button-->
+        <a href="/user_profile" class="flex justify-end p-3 pt-0 pr-8 pb-2
+                    md:pr-12 md:pt-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 lg:h-14 lg:w-14" viewBox="0 0 20 20" fill="#333333">
+                <path fill-rule="evenodd"
+                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+        <!--Profile Title-->
+        <h1 class="text-2xl font-bold ml-12 mb-8 
+                    md:text-3xl md:ml-14
+                    lg:ml-24" style="color: #333333;">
+            Edit Profile
+        </h1>
+        <!--Profile Picture-->
+        <div class="relative w-full flex justify-center justify-self-center" style="z-index: 20;">
+            <img class="absolute w-28 h-28 filter drop-shadow-xl mt-6" src="{{ url_for('static', filename='img/heading-icons/Final Profile pic(1).svg' ) }}" alt="">
+        </div>
+        <!--White Background-->
+        <div class="p-8 md:pb-0 md:px-14 lg:px-24">
+            <div class="mb-0 w-auto h-full bg-white pb-0 mt-16 p-6 sm:p-10 sm:pt-6 md:p-16 md:pb-10 md:pt-6 rounded-3xl md:rounded-3xl md:mb-0 " style="z-index: 10; color: #333333;">
+                <!--Change Profile Button-->
+                <a href="">
+                    <div class="static flex justify-center">
+                        <!-- <form action="POST">
+                            <input type="file" id="img" name="img" accept="image/*">
+                            <h1 class="flex items-center justify-center transition duration-500 ease-in-out hover:bg-indigo-600 transform hover:-translate-y-1 hover:scale-110 rounded-xl p-3 pt-2 pb-2 pl-4 pr-4 text-white text-lg bg-indigo-700 
+                        lg:transition lg:duration-300 lg:ease-in-out lg:transform lg:hover:-translate-y-1 lg:hover:scale-110
+                        md:p-4 md:pt-4 md:pb-4 md:pl-6 md:pr-6">
+                            Change Profile Picture
+                        </h1>
+                        </form>
+                    </div> -->
+                </a>
+                <!--Edit Container-->
+                <div class="p-6 space-y-6 md:space-y-0 md:p-10 md:grid md:grid-cols-1 md:gap-8">
+                    <!--Name-->
+                    <!-- <div>
+                        <p class="text-sm font-medium py-1 md:text-base">Name</p>
+                        <input type="text" name="fullname" id="inputFullName" placeholder="Enter Full Name"
+                            class="text-base text-current font-light bg-transparent border divide-y-1 focus:outline-none focus:ring-0 p-3  rounded-md w-full overflow-ellipsis md:text-base">
+                    </div> -->
+
+
+
+                    <!-- <form method="POST" enctype="multipart/form-data">
+                        <div class="static flex justify-center">
+                            <input type="file" id="img" name="img" accept="image/*">
+
+                        </div>
+                    </form> -->
+
+                    <form method="POST">
+                        <!--About-->
+                        <div>
+                            <p class="text-base md:text-lg font-medium py-1">About</p>
+                            <input name="about" id="about" placeholder="Enter About" class="text-base text-current font-light bg-transparent border divide-y-1 focus:outline-none focus:ring-0 p-3  rounded-md w-full overflow-ellipsis md:text-base">
+                        </div>
+
+                        <!--Address-->
+                        <div>
+                            <p class="text-base md:text-lg font-medium py-1">Address</p>
+                            <input type="text" name="address" id="address" placeholder="Enter Address" class="text-base text-current font-light bg-transparent border divide-y-1 focus:outline-none focus:ring-0 p-3  rounded-md w-full overflow-ellipsis md:text-base">
+                        </div>
+                        <!--Birthday-->
+                        <div>
+                            <p class="text-base md:text-lg font-medium py-1">Birthday</p>
+                            <input type="date" name="birthday" id="birthday" placeholder="Enter Birthday" class="text-base text-current font-light bg-transparent border divide-y-1 focus:outline-none focus:ring-0 p-3  rounded-md w-full overflow-ellipsis md:text-base">
+                        </div>
+                        <div class="text-center mt-4 mb-4 sm: mb-0">
+                            <input type="submit" id="update_btn" name="update_btn" value="Update" class="bg-gray-800 h-8 rounded-lg text-white text-sm mt-4 hover:bg-gray-500 hover:text-black px-4 w-36 md:text-md md:h-10 lg:text-lg lg:h-10 lg:w-40">
+
+                        </div>
+                    </form>
+                </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

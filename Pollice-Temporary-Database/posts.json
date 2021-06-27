@@ -1,0 +1,9 @@
+{"_id":{"$oid":"60b7cad481700f72554cb31e"},"post_id":"0001","post_name":"post1","post_details":"this is a sample text with id 0001"}
+{"_id":{"$oid":"60b7cce381700f72554cb593"},"post_id":"0002","post_name":"post2","post_details":"this is a sample text with id 0002"}
+{"_id":{"$oid":"60b7ccf081700f72554cb5a3"},"post_id":"0003","post_name":"post3","post_details":"this is a sample text with id 0003"}
+{"_id":{"$oid":"60bb4d9e1989815ca73e317e"},"post_id":"0004","post_name":"Johndabsdba","post_details":"abc"}
+{"_id":{"$oid":"60bb5054f896f0b1c0a0d54e"},"post_id":"0005","post_name":"Another","post_details":"dadasdasd"}
+{"_id":{"$oid":"60cce5ce7db5563c052cf325"},"post_id":"0006","post_name":"Another 1","post_details":"fnfsdkfs"}
+{"_id":{"$oid":"60cce61fa7496047c5de442f"},"post_id":"0007","post_name":"Another 2","post_details":"nfksdjjfmsd"}
+{"_id":{"$oid":"60cce650539cd5ff26ca799f"},"post_id":"0008","post_name":"Another 2","post_details":"nsjbdbsfds"}
+{"_id":{"$oid":"60cce661539cd5ff26ca79a0"},"post_id":"0009","post_name":"Another 3","post_details":"nasjdsad"}

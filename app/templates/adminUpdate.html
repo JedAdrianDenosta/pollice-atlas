@@ -1,0 +1,195 @@
+{% extends "adminBase2.html" %} {% block title %}Admin — Update Candidates{% endblock %} {% block content %}
+
+<!-- Title -->
+<div class="md:px-14 lg:px-20">
+    <div class="w-full p-6 flex-row">
+        <h1 class="text-2xl font-normal tracking flex justify-center sm:text-3xl md:text-4xl lg:text-4xl sm:p-1 md:p-3 lg:p-4">
+            Update Candidate
+        </h1>
+    </div>
+    <div>
+        <div class="filter backdrop-blur-3xl p-6 md:p-10 mb-12 border border-white shadow-lg" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+              backdrop-filter: blur(100px);
+              border-radius: 16px;
+              color: #333333;">
+            <!--Enter Data-->
+            <h1 class="flex flex-row justify-start text-sm font-medium md:text-base">Enter Data:</h1>
+            <form method="POST" class="w-full mx-auto space-y-6 py-4">
+                <div class="space-y-4">
+                    <!--ID Code-->
+                    <div class="rounded-lg px-4 border border-white" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                  backdrop-filter: blur(1000px);">
+                        <span class="flex flex-row items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 md:h-8 md:w-8" viewBox="0 0 20 20" fill="#4338ca">
+                <path fill-rule="evenodd"
+                  d="M9.243 3.03a1 1 0 01.727 1.213L9.53 6h2.94l.56-2.243a1 1 0 111.94.486L14.53 6H17a1 1 0 110 2h-2.97l-1 4H15a1 1 0 110 2h-2.47l-.56 2.242a1 1 0 11-1.94-.485L10.47 14H7.53l-.56 2.242a1 1 0 11-1.94-.485L5.47 14H3a1 1 0 110-2h2.97l1-4H5a1 1 0 110-2h2.47l.56-2.243a1 1 0 011.213-.727zM9.03 8l-1 4h2.938l1-4H9.031z"
+                  clip-rule="evenodd" />
+              </svg>
+              <input type="text" required
+                class="text-sm text-current font-light bg-transparent focus:outline-none focus:ring-0 p-3 rounded-md w-full overflow-ellipsis md:text-base"
+                placeholder="Enter Candidate ID" name="candidate_id" id="candidate_id">
+            </span>
+                    </div>
+                    <!--Name-->
+                    <div class="rounded-lg px-4 border border-white" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                  backdrop-filter: blur(1000px);">
+                        <span class="flex flex-row items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 md:h-8 md:w-8" viewBox="0 0 20 20" fill="#4338ca">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+              </svg>
+              <input type="text" required
+                class="text-sm text-current font-light bg-transparent focus:outline-none focus:ring-0 p-3 rounded-md w-full overflow-ellipsis md:text-base"
+                placeholder="Enter Name" name="candidate_name" id="candidate_name">
+            </span>
+                    </div>
+                    <!--Course-->
+                    <div class="rounded-lg px-4 border border-white" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                  backdrop-filter: blur(1000px);">
+                        <div class="flex flex-row items-center relative pointer-events-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 md:h-8 md:w-8" viewBox="0 0 20 20" fill="#4338ca">
+                <path
+                  d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+              </svg>
+                            <select required class="text-sm text-opacity-75 font-light focus:outline-none focus:ring-0 p-3 rounded-md appearance-none w-full h-full bg-transparent overflow-ellipsis md:text-base" name="candidate_course" id="candidate_course">
+                <option value="" selected disabled hidden>Select Course</option>
+                <option value="BSCS">Bachelor of Science in Computer Science</option>
+                <option value="BSIT">Bachelor of Science in Information Technology</option>
+                <option value="BLIS">Bachelor of Library Science</option>
+                <option value="BSIS">Bachelor of Science in Information Systems</option>
+                <option value="BSEMC">Bachelor of Science in Entertainment Multimedia
+                  Computing</option>
+              </select>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7 pointer-events-none" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+                        </div>
+                    </div>
+                    <!--Section-->
+                    <div class="rounded-lg px-4 border border-white" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                  backdrop-filter: blur(1000px);">
+                        <span class="flex flex-row items-center relative">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 md:h-8 md:w-8" viewBox="0 0 20 20" fill="#4338ca">
+                <path fill-rule="evenodd"
+                  d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z"
+                  clip-rule="evenodd" />
+              </svg>
+              <select required
+                class="text-sm text-opacity-75 font-light focus:outline-none focus:ring-0 p-3 rounded-md appearance-none w-full bg-transparent overflow-ellipsis md:text-base"
+                name="candidate_year" id="candidate_year">
+                <option value="" selected disabled hidden>Select Section</option>
+                <option value="1a">1-A</option>
+                <option value="1b">1-B</option>
+                <option value="2a">2-A</option>
+                <option value="2b">2-B</option>
+                <option value="3a">3-A</option>
+                <option value="3b">3-B</option>
+                <option value="4a">4-A</option>
+                <option value="4b">4-B</option>
+              </select>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7 pointer-events-auto"
+                viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </span>
+                    </div>
+                    <!--Party-->
+                    <div class="rounded-lg px-4 border border-white" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                  backdrop-filter: blur(1000px);">
+                        <span class="flex flex-row items-center relative">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 md:h-8 md:w-8" viewBox="0 0 20 20" fill="#4338ca">
+                <path fill-rule="evenodd"
+                  d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
+                  clip-rule="evenodd" />
+              </svg>
+              <select required
+                class="text-sm text-opacity-75 font-light focus:outline-none focus:ring-0 p-3 rounded-md appearance-none w-full bg-transparent overflow-ellipsis md:text-base"
+                name="candidate_party" id="candidate_party">
+                <option value="" selected disabled hidden>Select Party</option>
+                <option value="party1">Party 1</option>
+                <option value="party2">Party 2</option>
+                <option value="party3">Party 3</option>
+              </select>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7 pointer-events-none"
+                viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </span>
+                    </div>
+                    <!--Position-->
+                    <div class="rounded-lg px-4 border border-white" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                  backdrop-filter: blur(1000px);">
+                        <span class="flex flex-row items-center relative">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 md:h-8 md:w-8" viewBox="0 0 20 20" fill="#4338ca">
+                <path
+                  d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
+              </svg>
+              <select required
+                class="text-sm text-opacity-75 font-light focus:outline-none focus:ring-0 p-3 rounded-md appearance-none w-full bg-transparent overflow-ellipsis md:text-base"
+                name="candidate_position" id="candidate_position">
+                <option value="" selected disabled hidden>Select Position</option>
+                <option value="chairperson">Chairperson</option>
+                <option value="vice_chairperson">Vice-Chairperson</option>
+                <option value="secretary">Secretary</option>
+                <option value="assistant_secretary">Assistant Secretary</option>
+                <option value="treasurer">Treasurer</option>
+                <option value="assistant_treasurer">Assistant Treasurer</option>
+                <option value="auditor">Auditor</option>
+                <option value="assistant_auditor">Assistant Auditor</option>
+                <option value="business_manager">Business Manager</option>
+                <option value="assistant_business_manager">Assistant Business Manager</option>
+                <option value="pio">P.I.O.</option>
+                <option value="assistant_pio">Assistant P.I.O.</option>
+                <option value="representative1">Representative 1</option>
+                <option value="representative2">Representative 2</option>
+              </select>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7 pointer-events-none"
+                viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </span>
+                    </div>
+                </div>
+
+                <div class="flex justify-end py-3 md:py-5">
+                    <input name="submit_btn" value="Submit" placeholder="Submit" type="submit" class="modal-open transition duration-500 ease-in-out hover:bg-indigo-500 transform hover:-translate-y-1 hover:scale-110 rounded-xl h-10 w-28 text-white text-base bg-indigo-600 
+                      md:text-xl md:h-14 md:w-40 md:transition md:duration-300 md:ease-in-out md:transform md:hover:-translate-y-1 md:hover:scale-110">
+                </div>
+
+            </form>
+        </div>
+
+        <!--Real time update of candidates-->
+        {% if can_name %}
+        <div class="filter backdrop-blur-3xl p-6 mb-12 border border-white  shadow-lg" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+              backdrop-filter: blur(100px);
+              border-radius: 16px;
+              color: #333333;">
+            <h1 class="flex flex-row justify-center mb-6 text-lg font-medium md:text-xl">Updated Candidate
+            </h1>
+            <!--Added-->
+            <div class="flex justify-center">
+                <div class="leading-relaxed py-4 border w-auto h-auto border-white flex justify-center md:py-6" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+              backdrop-filter: blur(100px);
+              border-radius: 16px;
+              color: #333333;">
+                    <div class="flex flex-row justify-center">
+                        <p class="px-6 text-sm font-light md:text-base">
+                            <strong>{{can_name}}</strong> has been updated as {{can_position}} to {{can_party}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
