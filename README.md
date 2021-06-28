@@ -31,8 +31,7 @@
 - [x] Admin Can Update Candidates
 - [x] Admin Can Delete Candidates
 - [x] Admin Can View Candidates
-- [ ] Admin Can View Results Page in Real-time
-- [ ] Admin Can View News and Updates Page in Real-time
+
 
 ### Other Features
 - [x] Email Validation when user creates an account, only wvsu emails are allowed to create an account
@@ -46,6 +45,8 @@
 - [ ] Email verification when the user signs-up.
 - [ ] Let Admin create/edit/delete parties and choose party color
 - [ ] Give access to Admin in the admin panel to see the users that have voted along with their credentials, specifically their email and/or name for vote validity purposes
+- [ ] Admin Can View Results Page in Real-time
+- [ ] Admin Can View News and Updates Page in Real-time
 
 ## STEP 1: How to import Pollice-Temporary Database to MongoDB
 
