@@ -23,6 +23,7 @@
 - [x] User Can View Results in Real-time
 - [x] User Can View News and Updates
 - [x] User Can View About Page
+- [x] User Can View their Profile Page
 - [x] User Can Edit their Profile Page
 - [x] Admin Login, Logout
 - [x] Admin Can Add Candidates
