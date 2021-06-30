@@ -48,6 +48,7 @@
 - [ ] Give access to Admin in the admin panel to see the users that have voted along with their credentials, specifically their email and/or name for vote validity purposes
 - [ ] Admin Can View Results Page in Real-time
 - [ ] Admin Can View News and Updates Page in Real-time
+- [ ] User Can Change/Update Password
 
 ## STEP 1: How to import Pollice-Temporary Database to MongoDB
 
