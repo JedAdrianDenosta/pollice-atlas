@@ -1,104 +1,87 @@
-{% extends "adminBase2.html" %}
-
-{% block title %}Admin — View Candidates{% endblock %}
-
-{% block content %}
+{% extends "adminBase2.html" %} {% block title %}Admin — View Candidates{% endblock %} {% block content %}
 
 
 <!-- Title -->
 <div class="flex-col p-0 mt-12">
     <div class="p-0 mb-12 sm:p-8 sm:pt-0 lg:p-28 lg:pt-0">
         <!-- Content -->
-        <div class="flex flex-col filter backdrop-blur-3xl w-auto h-auto p-5 border border-white lg:w-auto lg:flex lg:place-self-center"
-            style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+        <div class="flex flex-col filter backdrop-blur-3xl w-auto h-auto p-5 border border-white lg:w-auto lg:flex lg:place-self-center" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
                 backdrop-filter: blur(1000px);
                 border-radius: 16px;">
-            <div class="m-4 grid grid-cols-1 gap-6 h-auto justify-items-center content-center">
-                <h1
-                    class="text-xl font-bold tracking-wide flexjustify-center sm:text-2xl md:text-3xl lg:text-4xl sm:p-1 md:p-3 lg:p-4 text-purple-900">
-                    View Candidates</h1>
+            <div class="w-full p-6 flex-row">
+                <h1 class="text-2xl font-normal tracking flex justify-center sm:text-3xl md:text-4xl lg:text-4xl sm:p-1 md:p-3 lg:p-4">
+                    View Candidates
+                </h1>
             </div>
 
             <div class="2xl:flex 2xl:flex-row justify-center sm:flex sm:flex-col md:flex md:flex-col">
 
-            <!-- Party 1 -->
-            <div class="mx-2 filter backdrop-blur-3xl w-auto h-auto mt-6 p-5 border border-white lg:w-auto lg:flex lg:place-self-center"
-                style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                <!-- Party 1 -->
+                <div class="mx-2 filter backdrop-blur-3xl w-auto h-auto mt-6 p-5 border border-white lg:w-auto lg:flex lg:place-self-center" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
                 backdrop-filter: blur(1000px);
                 border-radius: 16px;">
-                <div class="m-2 grid grid-cols-1 gap-6 flex flex-col flex-grow h-auto space-y-1">
-                    <h1
-                        class="justify-items-center content-center mx-auto text-xl font-light tracking-wide flex justify-center sm:text-md md:text-xl lg:text-2xl sm:p-1 md:p-3 lg:p-4">
-                        Party 1
-                    </h1>
-                    {% for item in party1 %}
-                    <div class="filter backdrop-blur-3xl w-full h-auto mt-6 p-5 border border-white lg:w-auto"
-                style="background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                    <div class="m-2 grid grid-cols-1 gap-6 flex flex-col flex-grow h-auto space-y-1">
+                        <h1 class="justify-items-center content-center mx-auto text-xl font-light tracking-wide flex justify-center sm:text-md md:text-xl lg:text-2xl sm:p-1 md:p-3 lg:p-4">
+                            Party 1
+                        </h1>
+                        {% for item in party1 %}
+                        <div class="filter backdrop-blur-3xl w-full h-auto mt-6 p-5 border border-white lg:w-auto" style="background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
                 backdrop-filter: blur(1000px);
                 border-radius: 16px;">
-                    
-                    <div class="text-center">
-                        {{ item[0][0] }} <br>
-                    {{ item[1][0] }} <br>
-                    <strong>{{ item[2][0] }}</strong>
-                    </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
 
-            <!-- Party 2 -->
-            <div class="mx-2 filter backdrop-blur-3xl w-auto h-auto mt-6 p-5 border border-white lg:w-auto lg:flex lg:place-self-center"
-                style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
-                backdrop-filter: blur(1000px);
-                border-radius: 16px;">
-                <div class="m-2 grid grid-cols-1 gap-6 flex flex-col flex-grow h-auto space-y-1">
-                    <h1
-                        class="justify-items-center content-center mx-auto text-xl font-light tracking-wide flex justify-center sm:text-md md:text-xl lg:text-2xl sm:p-1 md:p-3 lg:p-4">
-                        Party 2
-                    </h1>
-                    {% for item in party2 %}
-                    <div class="filter backdrop-blur-3xl w-full h-auto mt-6 p-5 border border-white lg:w-auto"
-                style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
-                backdrop-filter: blur(1000px);
-                border-radius: 16px;">
-                    
-                    <div class="text-center">
-                        {{ item[0][0] }} <br>
-                    {{ item[1][0] }} <br>
-                    <strong>{{ item[2][0] }}</strong>
+                            <div class="text-center">
+                                {{ item[0][0] }} <br> {{ item[1][0] }} <br>
+                                <strong>{{ item[2][0] }}</strong>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
-                    </div>
-                    {% endfor %}
                 </div>
-            </div>
 
-            <!-- Party 3 -->
-            <div class="mx-2 filter backdrop-blur-3xl w-auto h-auto mt-6 p-5 border border-white lg:w-auto lg:flex lg:place-self-center"
-                style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                <!-- Party 2 -->
+                <div class="mx-2 filter backdrop-blur-3xl w-auto h-auto mt-6 p-5 border border-white lg:w-auto lg:flex lg:place-self-center" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
                 backdrop-filter: blur(1000px);
                 border-radius: 16px;">
-                <div class="m-2 grid grid-cols-1 gap-6 flex flex-col flex-grow h-auto space-y-1">
-                    <h1
-                        class="justify-items-center content-center mx-auto text-xl font-light tracking-wide flex justify-center sm:text-md md:text-xl lg:text-2xl sm:p-1 md:p-3 lg:p-4">
-                        Party 3
-                    </h1>
-                    {% for item in party3 %}
-                    <div class="filter backdrop-blur-3xl w-full h-auto mt-6 p-5 border border-white lg:w-auto"
-                style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                    <div class="m-2 grid grid-cols-1 gap-6 flex flex-col flex-grow h-auto space-y-1">
+                        <h1 class="justify-items-center content-center mx-auto text-xl font-light tracking-wide flex justify-center sm:text-md md:text-xl lg:text-2xl sm:p-1 md:p-3 lg:p-4">
+                            Party 2
+                        </h1>
+                        {% for item in party2 %}
+                        <div class="filter backdrop-blur-3xl w-full h-auto mt-6 p-5 border border-white lg:w-auto" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
                 backdrop-filter: blur(1000px);
                 border-radius: 16px;">
-                    
-                    <div class="text-center">
-                        {{ item[0][0] }} <br>
-                    {{ item[1][0] }} <br>
-                    <strong>{{ item[2][0] }}</strong>
+
+                            <div class="text-center">
+                                {{ item[0][0] }} <br> {{ item[1][0] }} <br>
+                                <strong>{{ item[2][0] }}</strong>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
+                </div>
+
+                <!-- Party 3 -->
+                <div class="mx-2 filter backdrop-blur-3xl w-auto h-auto mt-6 p-5 border border-white lg:w-auto lg:flex lg:place-self-center" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                backdrop-filter: blur(1000px);
+                border-radius: 16px;">
+                    <div class="m-2 grid grid-cols-1 gap-6 flex flex-col flex-grow h-auto space-y-1">
+                        <h1 class="justify-items-center content-center mx-auto text-xl font-light tracking-wide flex justify-center sm:text-md md:text-xl lg:text-2xl sm:p-1 md:p-3 lg:p-4">
+                            Party 3
+                        </h1>
+                        {% for item in party3 %}
+                        <div class="filter backdrop-blur-3xl w-full h-auto mt-6 p-5 border border-white lg:w-auto" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                backdrop-filter: blur(1000px);
+                border-radius: 16px;">
+
+                            <div class="text-center">
+                                {{ item[0][0] }} <br> {{ item[1][0] }} <br>
+                                <strong>{{ item[2][0] }}</strong>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
-        </div>
 
 
         </div>

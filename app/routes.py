@@ -16,7 +16,7 @@ import random
 import pymongo
 import bcrypt
 from pymongo import collection
-from app import app
+from app import app, db, user_records, candidates_records, admins_records, posts_records, votes_records, voting_status
 from app.helpers import *
 from app.forms import *
 from app.models import *
@@ -25,29 +25,40 @@ from app.models import *
 
 model = Models()  # instance of the Model Class
 
-
-
-client = pymongo.MongoClient('localhost', 27017)
 # client = pymongo.MongoClient("mongodb://fynmn:October05@cluster0-shard-00-00.2fb7q.mongodb.net:27017,cluster0-shard-00-01.2fb7q.mongodb.net:27017,cluster0-shard-00-02.2fb7q.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-192j1z-shard-0&authSource=admin&retryWrites=true&w=majority")
+#client = pymongo.MongoClient("mongodb+srv://fynmn:October05@cluster0.2fb7q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
-db = client.get_database('election-system-test')
-user_records = db.users
-admin_records = db.admins
-candidates_records = db.candidates
-posts_records = db.posts
-# candidates_records_copy = db.candidates_copy
-user_records = db.users
-vote_records = db.votes
-voting_status = db.voting_status
+
+# client = pymongo.MongoClient('localhost', 27017)
+# db = client.get_database('election-system-test')
+
+
+# admins_records = db.admins
+# candidates_records = db.candidates
+# posts_records = db.posts
+# user_records = db.users
+# votes_records = db.votes
+# voting_status = db.voting_status
 
 user_created = False
-
 voted = False
 
 
 @app.errorhandler(404)
 def resource_not_found(e):
     return render_template('404.html'), 404
+
+@app.errorhandler(403)
+def resource_not_found(e):
+    return render_template('404.html'), 403
+
+@app.errorhandler(410)
+def resource_not_found(e):
+    return render_template('404.html'), 410
+
+@app.errorhandler(500)
+def resource_not_found(e):
+    return render_template('404.html'), 500
 
 @app.route("/", methods=['post', 'get'])
 def landing_page():
@@ -202,14 +213,12 @@ def admin():
 @app.route("/admin_login", methods=["POST", "GET"])
 def admin_login():
     message = ''
-    
-        
 
     if request.method == "POST":
         username = request.form.get("admin_username")
         password = request.form.get("admin_password")
 
-        username_found = admin_records.find_one({"username": username})
+        username_found = admins_records.find_one({"username": username})
         session["admin_username"] = username
         admin_username = session["admin_username"]
 
@@ -229,7 +238,8 @@ def admin_login():
         else:
             message = 'Username not found'
             return render_template('adminLogin.html', message=message, admin_username=admin_username)
-    return render_template('adminLogin.html', message=message)
+    else:
+        return render_template('adminLogin.html', message=message)
 
 
 @app.route("/admin_panel", methods=["POST", "GET"])
@@ -566,7 +576,7 @@ def vote():
                 votes_add = {"name": str(user), "chairperson": chairperson_vote, "vice_chairperson" : vice_chairperson_vote, "secretary" : secretary_vote, "assistant_secretary" : assistant_secretary_vote, "treasurer" : treasurer_vote, "assistant_treasurer" : assistant_treasurer_vote, "auditor":
                           auditor_vote, "assistant_auditor" : assistant_auditor_vote, "business_manager" : business_manager_vote, "assistant_business_manager" : assistant_business_manager_vote, "pio" : pio_vote, "assistant_pio" : assistant_pio_vote, "representative1" : representative1_vote, "representative2" :representative2_vote}
                     
-                vote_records.insert_one(votes_add)
+                votes_records.insert_one(votes_add)
 
                 if model.getVoted(str(user)):
                     voted = True

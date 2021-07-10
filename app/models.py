@@ -9,30 +9,32 @@ from flask import (
     jsonify,
     session,
     flash)
-
+from app import app, db, user_records, candidates_records, admins_records, posts_records, votes_records, voting_status
     
 class Models:
-    def __init__(self) -> None:
-        # self.client = pymongo.MongoClient('localhost', 27017)
+    # def __init__(self) -> None:
+
         # self.client = pymongo.MongoClient("mongodb://fynmn:October05@cluster0-shard-00-00.2fb7q.mongodb.net:27017,cluster0-shard-00-01.2fb7q.mongodb.net:27017,cluster0-shard-00-02.2fb7q.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-192j1z-shard-0&authSource=admin&retryWrites=true&w=majority")
-        self.client = pymongo.MongoClient('localhost', 27017)
-        self.db = self.client.get_database('election-system-test')
-        self.candidates_records = self.db.candidates
-        self.users_records = self.db.users
-        self.votes_records = self.db.votes
-        self.posts_records = self.db.posts
+        # self.client = pymongo.MongoClient('localhost', 27017)
+        # self.db = client.get_database('election-system-test')
+        # self.client = client
+        # self.db = db
+        # self.candidates_records = db.candidates
+        # self.users_records = db.users
+        # self.votes_records = db.votes
+        # self.posts_records = db.posts
 
     # A Function that gets candidates from database and returns them in dictionary format
     def getCandidates(self):
         
-        # db = self.client.get_database('election-system-test')
-        # self.candidates_records = db.candidates 
-        chairperson = self.candidates_records.distinct("chairperson")
-        secretary = self.candidates_records.distinct("secretary")
-        treasurer = self.candidates_records.distinct("treasurer")
-        auditor = self.candidates_records.distinct("auditor")
-        business_manager = self.candidates_records.distinct("business_manager")
-        representative = self.candidates_records.distinct("representative")
+        # db = client.get_database('election-system-test')
+        # candidates_records = db.candidates 
+        chairperson = candidates_records.distinct("chairperson")
+        secretary = candidates_records.distinct("secretary")
+        treasurer = candidates_records.distinct("treasurer")
+        auditor = candidates_records.distinct("auditor")
+        business_manager = candidates_records.distinct("business_manager")
+        representative = candidates_records.distinct("representative")
 
         candidates = {"chairperson": chairperson, "secretary": secretary, "treasurer": treasurer, "auditor": auditor, "business_manager": business_manager, "representative": representative}
 
@@ -41,9 +43,9 @@ class Models:
     # A Function that gets candidates from database
     def pullCandidates(self):
         
-        db = self.client.get_database('election-system-test')
-        self.candidates_records = db.candidates
-        result = self.candidates_records.find()
+        # db = client.get_database('election-system-test')
+        candidates_records = db.candidates
+        result = candidates_records.find()
 
         listOfCandidates = []
                     
@@ -64,10 +66,10 @@ class Models:
     # A Function that returns name and position of candidates from 2B
     def get2BList(self):
         
-        # db = self.client.get_database('election-system-test')
-        # self.candidates_records = db.candidates
+        # db = client.get_database('election-system-test')
+        # candidates_records = db.candidates
 
-        result = self.candidates_records.find()
+        result = candidates_records.find()
 
         candidateB = []
                     
@@ -87,10 +89,10 @@ class Models:
 
     def get2AList(self):
         
-        # db = self.client.get_database('election-system-test')
-        # self.candidates_records = db.candidates
+        # db = client.get_database('election-system-test')
+        # candidates_records = db.candidates
 
-        result = self.candidates_records.find()
+        result = candidates_records.find()
 
         candidateA = []
                     
@@ -110,10 +112,10 @@ class Models:
     # A Function that gets the voted value from the databse and returns it
     def getVoted(self, name):
         
-        # db = self.client.get_database('election-system-test')
+        # db = client.get_database('election-system-test')
         # users_records = db.users
 
-        voted = self.users_records.find_one({'name': name})
+        voted = users_records.find_one({'name': name})
 
         for i,j in voted.items():
             if i == 'voted':
@@ -130,20 +132,20 @@ class Models:
     # A Function that gets object id by name
     def getIDbyName(self, name):
         
-        # db = self.client.get_database('election-system-test')
+        # db = client.get_database('election-system-test')
         # user_records = db.users
 
-        record = self.users_records.find_one({'name' : name})
+        record = users_records.find_one({'name' : name})
 
         return record.get('_id')
 
     
     def pullListOfCandidates(self):
         
-        db = self.client.get_database('election-system-test')
-        self.candidates_records = db.candidates
+        # db = client.get_database('election-system-test')
+        candidates_records = db.candidates
 
-        result = self.candidates_records.find()
+        result = candidates_records.find()
 
         return result
 
@@ -157,11 +159,11 @@ class Models:
 
     def getVotes(self):
         
-        # db = self.client.get_database('election-system-test')
+        # db = client.get_database('election-system-test')
         # votes_records = db.votes
-        self.candidates_records = self.db.candidates
+        # candidates_records = db.candidates
 
-        candidate_list = self.candidates_records.find()
+        candidate_list = candidates_records.find()
         # candidate_description = [] #[name, party, votes]
         total = [] # [{position: [name, party, votes], position : [name, party, votes]}]
 
@@ -193,10 +195,10 @@ class Models:
                     # votes[position].append(i["position"])
                     votes[position].append(i["name"])
                     votes[position].append(i["party"])
-                    if self.votes_records.count_documents({}) != 0:
+                    if votes_records.count_documents({}) != 0:
                         # votes[position].append(str(round(float((votes_records.count_documents({i["position"] : i["name"]})/float(votes_records.count_documents({}))*100)),1)) + "%")
 
-                        votes[position].append(int(self.votes_records.count_documents({i["position"] : i["name"]})))
+                        votes[position].append(int(votes_records.count_documents({i["position"] : i["name"]})))
                         
                     else:
                         pass
@@ -211,10 +213,10 @@ class Models:
 
     def getPositions(self):
         
-        # db = self.client.get_database('election-system-test')
-        # self.candidates_records = db.candidates
+        # db = client.get_database('election-system-test')
+        # candidates_records = db.candidates
 
-        candidates = self.candidates_records.find()
+        candidates = candidates_records.find()
 
         positions = []
         positions_parsed = []
@@ -251,10 +253,10 @@ class Models:
     
     def getPosts(self):
         
-        # db = self.client.get_database('election-system-test')
+        # db = client.get_database('election-system-test')
         # posts_records = db.posts
 
-        records = self.posts_records.find()
+        records = posts_records.find()
 
         posts_list = [] # [[p1],[p2]]
 

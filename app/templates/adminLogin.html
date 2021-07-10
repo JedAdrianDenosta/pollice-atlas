@@ -1,31 +1,25 @@
-{% extends "userBase1.html" %}
-
-{% block title %}Pollice — Admin Login{% endblock %}
-
-{% block content %}
+{% extends "userBase1.html" %} {% block title %}Pollice — Admin Login{% endblock %} {% block content %}
 
 <div class="relative h-full w-full overflow-hidden">
     <div class="static md:p-10 lg:p-14">
         <!--Welcome Back-->
         <span class="text-3xl font-medium py-16 flex items-center
             md:text-5xl md:py-24 lg:py-10 lg:text-6xl">
-            <h1 class="ml-8 text-white md:ml-20 lg:ml-36">Welcome <br> Back</h1>
+            <h1 class="ml-8 text-white md:ml-20 lg:ml-36">Welcome Back, <br>Admin</h1>
         </span>
         <!--Cubes-->
         <div class="absolute top-5 -right-28 md:top-8 md:-right-40 lg:-right-56">
-            <img src="{{ url_for('static', filename='img/signInUP-icons/Cubes.svg') }}"
-                class="max-w-sm max-h-64 md:max-w-5xl md:max-h-96 lg:max-h-screen lg:max-w-3xl" alt="">
+            <img src="{{ url_for('static', filename='img/signInUP-icons/Cubes.svg') }}" class="max-w-sm max-h-64 md:max-w-5xl md:max-h-96 lg:max-h-screen lg:max-w-3xl" alt="">
         </div>
         <!--Form-->
         <form method="post">
             <div class="md:w-full h-auto pt-8 px-4 md:pt-8 md:px-20 lg:px-36 space-y-0">
-                <div class="static filter backdrop-blur-3xl p-8 sm:pb-28 sm:w-full md:p-10 border border-white border-opacity-50"
-                    style="background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+                <div class="static filter backdrop-blur-3xl p-8 sm:pb-28 sm:w-full md:p-10 border border-white border-opacity-50" style="background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
                         backdrop-filter: blur(100px);
                         border-radius: 30px;">
                     <!--Username-->
                     <div class="space-y-0 mt-4 px-4 lg:flex lg:flex-col lg:justify-start lg:px-10">
-                        <p class="text-sm font-light py-1" style="color: #767a83;">Email</p>
+                        <p class="text-sm font-light py-1" style="color: #767a83;">Username</p>
                         <div class="rounded-lg px-4 border border-white lg:max-w-lg" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
                         backdrop-filter: blur(1000px);">
                             <span class="flex flex-row items-center">
@@ -53,9 +47,13 @@
                                         clip-rule="evenodd" />
                                 </svg>
                                 <input type="password" required
-                                    class="text-sm text-current font-light bg-transparent focus:outline-none focus:ring-0 p-3 rounded-md w-full overflow-ellipsis md:text-base"
+                                    class="js-password text-sm text-current font-light bg-transparent focus:outline-none focus:ring-0 p-3 rounded-md w-full overflow-ellipsis md:text-base"
                                     placeholder="Enter Password" name="password" id="InputPassword">
-                            </span>
+                                    <div class="flex justify-end align-middle">
+                                        <input class="hidden js-password-toggle" id="toggle" type="checkbox" />
+                                        <label class="bg-gray-100 hover:bg-gray-200 rounded px-2 py-1 text-sm text-gray-600 cursor-pointer js-password-label" for="toggle">show</label>
+                                    </div>
+                                </span>
                         </div>
                     </div>
 
@@ -63,8 +61,7 @@
                         {{ message }}
                     </p>
 
-                    <div
-                        class="flex flex-col items-center justify-center mt-10 mb-10 lg:mb-0 px-4 text-white lg:px-10 lg:flex lg:flex-col lg:items-start lg:justify-start">
+                    <div class="flex flex-col items-center justify-center mt-10 mb-10 lg:mb-0 px-4 text-white lg:px-10 lg:flex lg:flex-col lg:items-start lg:justify-start">
 
                         <input type="submit" value="Log in" class="bg-indigo-700 hover:bg-indigo-600 text-base p-1 px-10 rounded-md w-full flex flex-row items-center justify-center
                     md:p-2 md:text-lg lg:max-w-lg">
@@ -76,5 +73,24 @@
     </div>
 </div>
 
+<script>
+    const passwordToggle1 = document.querySelector('.js-password-toggle')
+
+
+    passwordToggle1.addEventListener('change', function() {
+        const password1 = document.querySelector('.js-password'),
+            passwordLabel1 = document.querySelector('.js-password-label')
+
+        if (password1.type === 'password') {
+            password1.type = 'text'
+            passwordLabel1.innerHTML = 'hide'
+        } else {
+            password1.type = 'password'
+            passwordLabel1.innerHTML = 'show'
+        }
+
+        password1.focus()
+    })
+</script>
 
 {% endblock %}

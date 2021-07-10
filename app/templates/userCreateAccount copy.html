@@ -155,7 +155,7 @@
                                         placeholder="Enter Password" name="password1" id="password1" 
                                         value="{{password1}}"/>
                                     
-                                        <div class="flex justify-end">
+                                        <div class="flex justify-end align-middle">
                                             <input class="hidden js-password-toggle1" id="toggle" type="checkbox" />
                                     <label class="bg-gray-100 hover:bg-gray-200 rounded px-2 py-1 text-sm text-gray-600 cursor-pointer js-password-label1" for="toggle">show</label>
                                         </div>
@@ -173,7 +173,7 @@
                             <p class="text-sm font-light py-1" style="color: #767a83;">Confirm Password</p>
                             <div class="rounded-lg px-4 border border-white lg:max-w-lg" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
                         backdrop-filter: blur(1000px);">
-                                <span class="flex flex-row items-center ">
+                                <span class="flex flex-row items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 md:h-8 md:w-8"
                                         viewBox="0 0 20 20" fill="#4338ca">
                                         <path fill-rule="evenodd"
@@ -185,9 +185,9 @@
                                         placeholder="Repeat Password" name="password2" id="password2"
                                         value="{{password2}}"/>
 
-                                        <div class="justify-end">
-                                            <input class="hidden js-password-toggle2" id="toggle1" type="checkbox" />
-                                    <label class="bg-gray-100 hover:bg-gray-200 rounded px-2 py-1 text-sm text-gray-600 cursor-pointer js-password-label2" for="toggle1">show</label>
+                                        <div class="flex justify-end align-middle">
+                                            <input class="hidden js-password-toggle2" id="toggle" type="checkbox" />
+                                    <label class="bg-gray-100 hover:bg-gray-200 rounded px-2 py-1 text-sm text-gray-600 cursor-pointer js-password-label2" for="toggle">show</label>
                                         </div>
                                 </span>
                             </div>
@@ -217,11 +217,11 @@
 
     <script>
         const passwordToggle1 = document.querySelector('.js-password-toggle1')
-
+        const passwordToggle2 = document.querySelector('.js-password-toggle2')
 
         passwordToggle1.addEventListener('change', function() {
-            const password1 = document.querySelector('.js-password1'),
-                passwordLabel1 = document.querySelector('.js-password-label1')
+            const password1 = document.querySelector('js-password1'),
+                passwordLabel1 = document.querySelector('js-password-label1')
 
             if (password1.type === 'password') {
                 password1.type = 'text'
@@ -234,10 +234,9 @@
             password1.focus()
         })
 
-        const passwordToggle2 = document.querySelector('.js-password-toggle2')
         passwordToggle2.addEventListener('change', function() {
-            const password2 = document.querySelector('.js-password2'),
-                passwordLabel2 = document.querySelector('.js-password-label2')
+            const password2 = document.querySelector('js-password2'),
+                passwordLabel2 = document.querySelector('js-password-label2')
 
             if (password2.type === 'password') {
                 password2.type = 'text'

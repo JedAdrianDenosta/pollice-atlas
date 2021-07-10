@@ -47,9 +47,14 @@
                                         clip-rule="evenodd" />
                                 </svg>
                                 <input type="password" required
-                                    class="text-sm text-current font-light bg-transparent focus:outline-none focus:ring-0 p-3 rounded-md w-full overflow-ellipsis md:text-base"
+                                    class="js-password text-sm text-current font-light bg-transparent focus:outline-none focus:ring-0 p-3 rounded-md w-full overflow-ellipsis md:text-base"
                                     placeholder="Enter Password" name="password" id="InputPassword">
-                            </span>
+                                
+                                    <div class="flex justify-end align-middle">
+                                        <input class="hidden js-password-toggle" id="toggle" type="checkbox" />
+                                <label class="bg-gray-100 hover:bg-gray-200 rounded px-2 py-1 text-sm text-gray-600 cursor-pointer js-password-label" for="toggle">show</label>
+                                    </div>
+                                </span>
                         </div>
                     </div>
 
@@ -79,6 +84,27 @@
         </form>
     </div>
 </div>
+
+<script>
+    const passwordToggle1 = document.querySelector('.js-password-toggle')
+
+
+    passwordToggle1.addEventListener('change', function() {
+        const password1 = document.querySelector('.js-password'),
+            passwordLabel1 = document.querySelector('.js-password-label')
+
+        if (password1.type === 'password') {
+            password1.type = 'text'
+            passwordLabel1.innerHTML = 'hide'
+        } else {
+            password1.type = 'password'
+            passwordLabel1.innerHTML = 'show'
+        }
+
+        password1.focus()
+    })
+</script>
+
 
 
 {% endblock %}

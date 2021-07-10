@@ -1,13 +1,8 @@
-{% extends "userBase2.html" %}
-
-{% block title %}Pollice — Results{% endblock %}
-
-{% block content %}
+{% extends "userBase2.html" %} {% block title %}Pollice — Results{% endblock %} {% block content %}
 <!-- Title -->
 <div class="relative inline-block lg:p-12 lg:pt-6">
     <div class="w-full p-6 pb-3 lg:pt-0 flex-row">
-        <h1
-            class="text-2xl font-normal tracking-wider flex justify-center sm:text-3xl md:text-4xl lg:text-4xl sm:p-1 md:p-3 lg:p-4">
+        <h1 class="text-2xl font-normal tracking-wider flex justify-center sm:text-3xl md:text-4xl lg:text-4xl sm:p-1 md:p-3 lg:p-4">
             Result
         </h1>
     </div>
@@ -16,14 +11,11 @@
     <div class="pt-2 pb-8 md:pb-10 ">
         <h2 class="mt-1 text-gray-700 text-lg font-normal">Legend</h2>
         <div class="grid grid-cols-3 gap-2 w-60 items-start pt-1">
-            <p
-                class="flex justify-center text-xs p-1 bg-pink-400 w-auto text-white font-light tracking-wide rounded-lg sm:text-sm">
+            <p class="flex justify-center text-xs p-1 bg-pink-400 w-auto text-white font-light tracking-wide rounded-lg sm:text-sm">
                 Party 1</p>
-            <p
-                class="flex justify-center text-xs p-1 bg-purple-400 w-auto text-white font-light tracking-wide rounded-lg sm:text-sm">
+            <p class="flex justify-center text-xs p-1 bg-purple-400 w-auto text-white font-light tracking-wide rounded-lg sm:text-sm">
                 Party 2</p>
-            <p
-                class="flex justify-center text-xs p-1 bg-blue-400 w-auto text-white font-light tracking-wide rounded-lg sm:text-sm">
+            <p class="flex justify-center text-xs p-1 bg-blue-400 w-auto text-white font-light tracking-wide rounded-lg sm:text-sm">
                 Party 3</p>
         </div>
     </div>
@@ -36,14 +28,12 @@
         {% for position in positions %}
 
         <!-- Content -->
-        <div class="filter backdrop-blur-3xl w-full h-full p-6 pl-4 pr-4 border order-first border-white shadow-xl"
-            style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+        <div class="filter backdrop-blur-3xl w-full h-full p-6 pl-4 pr-4 border order-first border-white shadow-xl" style=" background: linear-gradient(118.32deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
                 backdrop-filter: blur(1000px);
                 border-radius: 16px;">
             <!--First Content-->
             <div class="flex items-center flex-col w-auto h-auto">
-                <h4 class="flex flex-col text-center w-auto h-auto p-3 mb-1 pl-7 pr-7 tracking-wider rounded-lg text-white text-lg sm:w-auto md:text-lg filter drop-shadow-lg"
-                    style="background: #4338ca;">
+                <h4 class="flex flex-col text-center w-auto h-auto p-3 mb-1 pl-7 pr-7 tracking-wider rounded-lg text-white text-lg sm:w-auto md:text-lg filter drop-shadow-lg" style="background: #4338ca;">
 
                     {{position}}
 
@@ -55,37 +45,9 @@
                         <div class="text-transparent h-1">
 
                             <!-- make numbers list to find the max number -->
-                            {% set numbers = [] %}
-
-                            {% for vote in votes %}
-                            {% for key, value in vote.items() %}
-                            {% if position == key %}
-                            {% if value[1] == "party1" %}
-                            {{ numbers.append(value[2]) }}
-                            {% endif %}
-                            {% endif %}
-                            {% endfor %}
-                            {% endfor %}
-
-                            {% for vote in votes %}
-                            {% for key, value in vote.items() %}
-                            {% if position == key %}
-                            {% if value[1] == "party2" %}
-                            {{ numbers.append(value[2]) }}
-                            {% endif %}
-                            {% endif %}
-                            {% endfor %}
-                            {% endfor %}
-
-                            {% for vote in votes %}
-                            {% for key, value in vote.items() %}
-                            {% if position == key %}
-                            {% if value[1] == "party3" %}
-                            {{ numbers.append(value[2]) }}
-                            {% endif %}
-                            {% endif %}
-                            {% endfor %}
-                            {% endfor %}
+                            {% set numbers = [] %} {% for vote in votes %} {% for key, value in vote.items() %} {% if position == key %} {% if value[1] == "party1" %} {{ numbers.append(value[2]) }} {% endif %} {% endif %} {% endfor %} {% endfor %} {% for vote in votes %} {% for
+                            key, value in vote.items() %} {% if position == key %} {% if value[1] == "party2" %} {{ numbers.append(value[2]) }} {% endif %} {% endif %} {% endfor %} {% endfor %} {% for vote in votes %} {% for key, value in vote.items()%}
+                            {% if position == key %} {% if value[1] == "party3" %} {{ numbers.append(value[2]) }} {% endif %} {% endif %} {% endfor %} {% endfor %}
 
                         </div>
 
@@ -93,77 +55,64 @@
 
 
                         <!-- PARTY1 -->
-                        {% for vote in votes %}
-                        {% for key, value in vote.items() %}
-                        {% if position == key %}
-
-                        {% if value[1] == "party1" %}
-                        <label
-                            class="w-auto h-auto flex justify-center bg-gradient-to-r from-pink-400 to-pink-300 p-2 pr-4 pl-4 rounded-sm tracking-wide filter drop-shadow-md">
+                        {% for vote in votes %} {% for key, value in vote.items() %} {% if position == key %} {% if value[1] == "party1" %}
+                        <label class="w-auto h-auto flex justify-center bg-gradient-to-r from-pink-400 to-pink-300 p-2 pr-4 pl-4 rounded-sm tracking-wide filter drop-shadow-md">
                             <span class="grid grid-cols-2">
                                 <input type="hidden" name="light" checked>
 
 
                                 {% if numbers[0] > numbers[1] and numbers[0] > numbers[2] %}
                                 <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
+                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
                                 <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
+                                    <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
                                         {{value[2]}} votes
                                     </span>
 
                                     {% elif numbers[0] == numbers[1] == numbers[2] %}
                                     <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
-                                        {{value[2]}} votes
-                                    </span>
+                                        class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
+                                    <span class="w-auto flex justify-end text-sm">
+                                        <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
+                                            {{value[2]}} votes
+                                        </span>
 
-                                    {% elif numbers[0] == numbers[1] and numbers[0] > numbers[2] %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
-                                        {{value[2]}} votes
-                                    </span>
+                                        {% elif numbers[0] == numbers[1] and numbers[0] > numbers[2] %}
+                                        <span
+                                            class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
+                                        <span class="w-auto flex justify-end text-sm">
+                                            <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
+                                                {{value[2]}} votes
+                                            </span>
 
-                                    {% elif numbers[0] == numbers[2] and numbers[0] > numbers[1] %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
-                                        {{value[2]}} votes
-                                    </span>
+                                            {% elif numbers[0] == numbers[2] and numbers[0] > numbers[1] %}
+                                            <span
+                                                class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
+                                            <span class="w-auto flex justify-end text-sm">
+                                                <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
+                                                    {{value[2]}} votes
+                                                </span>
 
-                                    {% else %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2">
-                                        {{value[2]}} votes
-                                    </span>
+                                                {% else %}
+                                                <span
+                                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm">{{value[0]}}</span>
+                                                <span class="w-auto flex justify-end text-sm">
+                                                    <span class=" p-0 pl-2 pr-2">
+                                                        {{value[2]}} votes
+                                                    </span>
 
-                                    {% endif %}
+                                                    {% endif %}
 
 
 
-                                </span>
-                            </span>
-                        </label>
-                        {% endif %}
-                        {% endif %}
-                        {% endfor %}
-                        {% endfor %}
+                                                </span>
+                                            </span>
+                        </label> {% endif %} {% endif %} {% endfor %} {% endfor %}
 
 
                         <!-- PARTY2 -->
-                        {% for vote in votes %}
-                        {% for key, value in vote.items() %}
-                        {% if position == key %}
-                        {% if value[1] == "party2" %}
-                        <label
-                            class="w-auto h-auto flex justify-center bg-gradient-to-r from-purple-400 to-purple-300 p-2 pr-4 pl-4 rounded-sm tracking-wide filter drop-shadow-md">
+                        {% for vote in votes %} {% for key, value in vote.items() %} {% if position == key %} {% if value[1] == "party2" %}
+                        <label class="w-auto h-auto flex justify-center bg-gradient-to-r from-purple-400 to-purple-300 p-2 pr-4 pl-4 rounded-sm tracking-wide filter drop-shadow-md">
                             <span class="grid grid-cols-2">
                                 <input type="hidden" name="light" checked>
                                 <!-- <span
@@ -171,118 +120,106 @@
                                 <span class="w-auto flex justify-end text-sm"> -->
 
 
-                                    {% if numbers[1] > numbers[2] and numbers[1] > numbers[0] %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
+                                {% if numbers[1] > numbers[2] and numbers[1] > numbers[0] %}
+                                <span
+                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
                                 <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
+                                    <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
                                         {{value[2]}} votes
                                     </span>
 
                                     {% elif numbers[0] == numbers[1] == numbers[2] %}
                                     <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
-                                        {{value[2]}} votes
-                                    </span>
+                                        class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
+                                    <span class="w-auto flex justify-end text-sm">
+                                        <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
+                                            {{value[2]}} votes
+                                        </span>
 
-                                    {% elif numbers[1] == numbers[0] and numbers[1] > numbers[2] %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
-                                        {{value[2]}} votes
-                                    </span>
+                                        {% elif numbers[1] == numbers[0] and numbers[1] > numbers[2] %}
+                                        <span
+                                            class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
+                                        <span class="w-auto flex justify-end text-sm">
+                                            <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
+                                                {{value[2]}} votes
+                                            </span>
 
-                                    {% elif numbers[1] == numbers[2] and numbers[1] > numbers[0] %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
-                                        {{value[2]}} votes
-                                    </span>
+                                            {% elif numbers[1] == numbers[2] and numbers[1] > numbers[0] %}
+                                            <span
+                                                class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
+                                            <span class="w-auto flex justify-end text-sm">
+                                                <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
+                                                    {{value[2]}} votes
+                                                </span>
 
-                                    {% else %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2">
-                                        {{value[2]}} votes
-                                    </span>
+                                                {% else %}
+                                                <span
+                                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm">{{value[0]}}</span>
+                                                <span class="w-auto flex justify-end text-sm">
+                                                    <span class=" p-0 pl-2 pr-2">
+                                                        {{value[2]}} votes
+                                                    </span>
 
-                                    {% endif %}
+                                                    {% endif %}
 
-                                </span>
-                            </span>
-                        </label>
-                        {% endif %}
-                        {% endif %}
-                        {% endfor %}
-                        {% endfor %}
+                                                </span>
+                                            </span>
+                        </label> {% endif %} {% endif %} {% endfor %} {% endfor %}
 
                         <!-- PARTY3 -->
-                        {% for vote in votes %}
-                        {% for key, value in vote.items() %}
-                        {% if position == key %}
-                        {% if value[1] == "party3" %}
-                        <label
-                            class="w-auto h-auto flex justify-center bg-gradient-to-r from-blue-400 to-blue-300 p-2 pr-4 pl-4 rounded-sm tracking-wide filter drop-shadow-md">
+                        {% for vote in votes %} {% for key, value in vote.items() %} {% if position == key %} {% if value[1] == "party3" %}
+                        <label class="w-auto h-auto flex justify-center bg-gradient-to-r from-blue-400 to-blue-300 p-2 pr-4 pl-4 rounded-sm tracking-wide filter drop-shadow-md">
                             <span class="grid grid-cols-2">
                                 <input type="hidden" name="light" checked>
                                 <!-- <span
                                     class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm">{{value[0]}}</span>
                                 <span class="w-auto flex justify-end text-sm"> -->
 
-                                    {% if numbers[2] > numbers[1] and numbers[2] > numbers[0] %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
+                                {% if numbers[2] > numbers[1] and numbers[2] > numbers[0] %}
+                                <span
+                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
                                 <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
+                                    <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
                                         {{value[2]}} votes
                                     </span>
 
                                     {% elif numbers[0] == numbers[1] == numbers[2] %}
                                     <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
-                                        {{value[2]}} votes
-                                    </span>
+                                        class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
+                                    <span class="w-auto flex justify-end text-sm">
+                                        <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
+                                            {{value[2]}} votes
+                                        </span>
 
-                                    {% elif numbers[2] == numbers[0] and numbers[2] > numbers[1] %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
-                                        {{value[2]}} votes
-                                    </span>
+                                        {% elif numbers[2] == numbers[0] and numbers[2] > numbers[1] %}
+                                        <span
+                                            class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
+                                        <span class="w-auto flex justify-end text-sm">
+                                            <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
+                                                {{value[2]}} votes
+                                            </span>
 
-                                    {% elif numbers[2] == numbers[1] and numbers[2] > numbers[0] %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm text-green-600">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2 text-green-600">
-                                        {{value[2]}} votes
-                                    </span>
+                                            {% elif numbers[2] == numbers[1] and numbers[2] > numbers[0] %}
+                                            <span
+                                                class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm p-1">{{value[0]}}</span>
+                                            <span class="w-auto flex justify-end text-sm">
+                                                <span class=" p-0 pl-2 pr-2 md:p-1 bg-green-400 rounded">
+                                                    {{value[2]}} votes
+                                                </span>
 
-                                    {% else %}
-                                    <span
-                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm">{{value[0]}}</span>
-                                <span class="w-auto flex justify-end text-sm">
-                                    <span class=" p-0 pl-2 pr-2">
-                                        {{value[2]}} votes
-                                    </span>
+                                                {% else %}
+                                                <span
+                                                    class="w-40 row-span-2 col-start-1 items-center justify-items-center text-sm">{{value[0]}}</span>
+                                                <span class="w-auto flex justify-end text-sm">
+                                                    <span class=" p-0 pl-2 pr-2">
+                                                        {{value[2]}} votes
+                                                    </span>
 
-                                    {% endif %}
+                                                    {% endif %}
 
-                                </span>
-                            </span>
-                        </label>
-                        {% endif %}
-                        {% endif %}
-                        {% endfor %}
-                        {% endfor %}
+                                                </span>
+                                            </span>
+                        </label> {% endif %} {% endif %} {% endfor %} {% endfor %}
 
                     </div>
                 </form>
