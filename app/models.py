@@ -9,7 +9,7 @@ from flask import (
     jsonify,
     session,
     flash)
-from app import app, db, user_records, candidates_records, admins_records, posts_records, votes_records, voting_status
+from app import app, db, users_records, candidates_records, admins_records, posts_records, votes_records, voting_status
     
 class Models:
     # def __init__(self) -> None:
@@ -133,7 +133,7 @@ class Models:
     def getIDbyName(self, name):
         
         # db = client.get_database('election-system-test')
-        # user_records = db.users
+        # users_records = db.users
 
         record = users_records.find_one({'name' : name})
 

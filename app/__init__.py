@@ -23,7 +23,7 @@ user_records = db.users
 admins_records = db.admins
 candidates_records = db.candidates
 posts_records = db.posts
-user_records = db.users
+users_records = db.users
 votes_records = db.votes
 voting_status = db.voting_status
 

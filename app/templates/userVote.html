@@ -90,7 +90,7 @@
                         {% for vote in votes %} {% for key, value in vote.items() %} {% if position == key %} {% if value[1] == "party1" %}
                         <!-- PARTY 1 -->
                         <label class="custom-radio">
-                            <input type="radio" name="{{position}}" value="{{value[0]}}" id="{{value[0]}}" required>
+                            <input type="radio" name="{{position}}" value="{{value[0]}}" id="{{value[0]}}">
                             <span class="radio-btn pt-4 pb-4">
                                 <i class="las la-check"></i>
                                 <span class="bg-gradient-to-r from-pink-400 to-pink-300 rounded-md w-auto h-auto">
@@ -104,7 +104,7 @@
                         {% endif %} {% endif %} {% endfor %} {% endfor %} {% for vote in votes %} {% for key, value in vote.items() %} {% if position == key %} {% if value[1] == "party2" %}
                         <!-- PARTY 2 -->
                         <label class="custom-radio">
-                            <input type="radio" name="{{position}}" value="{{value[0]}}" id="{{value[0]}}" required>
+                            <input type="radio" name="{{position}}" value="{{value[0]}}" id="{{value[0]}}">
                             <span class="radio-btn pt-4 pb-4">
                                 <i class="las la-check"></i>
                                 <span class="bg-gradient-to-r from-purple-400 to-purple-300 rounded-md w-auto h-auto">
@@ -118,7 +118,7 @@
                         {% endif %} {% endif %} {% endfor %} {% endfor %} {% for vote in votes %} {% for key, value in vote.items() %} {% if position == key %} {% if value[1] == "party3" %}
                         <!-- PARTY 3 -->
                         <label class="custom-radio">
-                            <input type="radio" name="{{position}}" value="{{value[0]}}" id="{{value[0]}}" required>
+                            <input type="radio" name="{{position}}" value="{{value[0]}}" id="{{value[0]}}">
                             <span class="radio-btn pt-4 pb-4">
                                 <i class="las la-check"></i>
                                 <span class="bg-gradient-to-r from-blue-400 to-blue-300 rounded-md w-auto h-auto">

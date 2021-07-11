@@ -16,7 +16,7 @@ import random
 import pymongo
 import bcrypt
 from pymongo import collection
-from app import app, db, user_records, candidates_records, admins_records, posts_records, votes_records, voting_status
+from app import app, db, users_records, candidates_records, admins_records, posts_records, votes_records, voting_status
 from app.helpers import *
 from app.forms import *
 from app.models import *
@@ -36,7 +36,7 @@ model = Models()  # instance of the Model Class
 # admins_records = db.admins
 # candidates_records = db.candidates
 # posts_records = db.posts
-# user_records = db.users
+# users_records = db.users
 # votes_records = db.votes
 # voting_status = db.voting_status
 
@@ -88,8 +88,8 @@ def create_account():
         email_domain = email.split('@')[-1]
         
 
-        user_found = user_records.find_one({"name": user})
-        email_found = user_records.find_one({"email": email})
+        user_found = users_records.find_one({"name": user})
+        email_found = users_records.find_one({"email": email})
         
         def hasNumbers(inputString):
             return any(char.isdigit() for char in inputString)
@@ -120,9 +120,9 @@ def create_account():
             hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
             user_input = {'name': user, 'email': email,
                 'password': hashed, 'course' : course, 'section': section, 'about': "Insert descrption here", 'birthday': "None", 'address': "None", 'voted': False}
-            user_records.insert_one(user_input)
+            users_records.insert_one(user_input)
 
-            user_data = user_records.find_one({"email": email})
+            user_data = users_records.find_one({"email": email})
             new_email = user_data['email']
             session["email"] = new_email
             session["section"] = section
@@ -163,7 +163,7 @@ def login():
         password = request.form.get("password")
 
         # returns the document of the user
-        email_found = user_records.find_one({"email": email})
+        email_found = users_records.find_one({"email": email})
         if email_found:
             email_val = email_found['email']
             section_val = email_found['section']
@@ -571,7 +571,7 @@ def vote():
                 candidate_id = model.getIDbyName(str(user))
                 updateRecordQuery = {"_id": candidate_id}
                 newvalues = {"$set": {"voted": True}}
-                user_records.update_one(updateRecordQuery, newvalues)
+                users_records.update_one(updateRecordQuery, newvalues)
 
                 votes_add = {"name": str(user), "chairperson": chairperson_vote, "vice_chairperson" : vice_chairperson_vote, "secretary" : secretary_vote, "assistant_secretary" : assistant_secretary_vote, "treasurer" : treasurer_vote, "assistant_treasurer" : assistant_treasurer_vote, "auditor":
                           auditor_vote, "assistant_auditor" : assistant_auditor_vote, "business_manager" : business_manager_vote, "assistant_business_manager" : assistant_business_manager_vote, "pio" : pio_vote, "assistant_pio" : assistant_pio_vote, "representative1" : representative1_vote, "representative2" :representative2_vote}
@@ -631,7 +631,7 @@ def admin_profile():
 @app.route("/user_profile", methods=["POST", "GET"])
 def user_profile():
     email = session["email"]
-    email_found = user_records.find_one({"email":email})
+    email_found = users_records.find_one({"email":email})
     user = session["name"]
     username = session["name"].split(" ")
     usn = username[0]
@@ -686,7 +686,7 @@ def edit_profile():
                 address = request.form.get("address")
                 birthday = request.form.get("birthday")
                 new_vals = {"$set": {"about": about, "address" : address, "birthday" : birthday}}
-                user_records.update_one(IdQuery, new_vals)
+                users_records.update_one(IdQuery, new_vals)
 
             return redirect(url_for('user_profile', user=usn))
     
